@@ -166,7 +166,69 @@
   .tagline{font-size:24px}
   .gallery{grid-template-columns:1fr}
 }
+/* ===== Mobile polish (paste at bottom of <style>) ===== */
+
+/* friendlier base on phones */
+:root{ --mobile-pad:16px; }
+html, body { -webkit-text-size-adjust:100%; }
+
+/* keep images inside their boxes */
+img { max-width:100%; height:auto; }
+
+/* avoid sticky header covering anchors */
+section { scroll-margin-top: 84px; }
+
+/* typography scales down nicely */
+h1.tagline{ font-size: clamp(26px, 6vw, 40px); line-height:1.2; }
+h2{ font-size: clamp(20px, 5vw, 30px); }
+p, li{ font-size: clamp(14px, 4vw, 16px); }
+
+/* Wrap container padding on small screens */
+@media (max-width: 900px){
+  .wrap{ padding: 0 var(--mobile-pad); }
+  section{ padding: 40px 0; }
+}
+
+/* NAV: let links wrap and be tappable */
+@media (max-width: 780px){
+  .nav{ flex-wrap: wrap; gap: 8px; }
+  .navlinks{ flex: 1 1 100%; gap: 8px; justify-content: center; }
+  .navlinks a{ padding: 8px 10px; font-size: 14px; }
+}
+
+/* HERO: one column, big image */
+@media (max-width: 900px){
+  .hero .grid{ grid-template-columns: 1fr; gap: 18px; }
+  .photo{ width:100%; height:auto; aspect-ratio: 4/5; }
+  .cta{ gap:10px; }
+  .btn{ padding: 12px 16px; border-radius: 12px; }
+  .btn.btn-primary, .btn.btn-ghost{ flex: 1 1 auto; justify-content:center; }
+}
+
+/* General two-column sections stack */
+@media (max-width: 900px){
+  .two{ grid-template-columns: 1fr; gap: 18px; }
+  .card{ padding: 18px; }
+}
+
+/* Detective Code cards a bit wider on phone */
+@media (max-width: 900px){
+  .rule{ min-width: 280px; max-width: 280px; }
+}
+
+/* Galleries & evidence board: 2 cols on phones */
+@media (max-width: 900px){
+  .gallery{ grid-template-columns: repeat(2, 1fr); }
+  .board{ grid-template-columns: 1fr; }
+}
+
+/* Tiny phones */
+@media (max-width: 360px){
+  .navlinks a{ font-size: 13px; }
+  .pill{ font-size: 12px; padding:5px 8px; }
+}
   </style>
+  
   
 </head>
 <body>
